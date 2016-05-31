@@ -1,1 +1,30 @@
+#include <stdio.h>
 
+
+int if_endif_t()
+{
+	int nums[4] = {1,2,3,2};
+	int i;
+	int total = 0;
+	for(i = 0;i < 4;i++)
+	{
+		total += nums[i];
+		//return 0;   //相当于exit()直接跳出来
+#undef DEF_FLAG
+#ifdef DEF_FLAG
+		printf("nums[%d] is %d\n",i,nums[i]);
+#else
+		printf("total%d is %d\n",i,total);
+#endif
+
+	}
+	printf("total%d is %d\n",i,total);
+#if ARRAY_SIZE == 10
+	puts("hei hei hei!");
+#elif ARRAY_SIZE == 14
+	puts("ha ha ha!");
+#endif
+	inline_pri();
+	return 0;
+
+}
