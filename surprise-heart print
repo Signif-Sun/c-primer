@@ -42,4 +42,5 @@ void heart_pri_t()
 	
 	for (i=1; i<=5; i++)				
 		printf("\n");	//最后空出5行 
+		
 }
