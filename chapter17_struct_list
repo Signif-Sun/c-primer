@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+typedef struct student {
+	int tig;
+	char name[15];
+	int grade;
+	struct student *next_ptr;
+} stu_li;
+
+
+void struct_list()
+{
+	stu_li num_one = {
+		1,
+		"xiaohui",
+		99
+	};
+	stu_li *stu_list = &num_one;
+	stu_li num_two = {
+		2,
+		"zipei",
+		98,
+		stu_list
+	};
+	printf("%d",sizeof(*num_two.next_ptr));
+
+}
