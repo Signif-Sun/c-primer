@@ -1,27 +1,49 @@
 #include <stdio.h>
 
-typedef struct student {
-	int tig;
-	char name[15];
-	int grade;
-	struct student *next_ptr;
-} stu_li;
+
+#define TSIZE 20
+
+struct film
+{
+	char title[TSIZE];
+	int rating;
+};
+
+typedef struct film Item;
+
+typedef struct node
+{
+	Item item;
+	struct node *next;
+} Node;
+
+typedef Node *List;
+
+List initialize_List(List plist)
+{
+	plist = NULL;
+	return plist;
+}
+
+int isEmpty(const List plist)
+{
+	if(plist == NULL)
+		return TURE;
+	else
+		return FALSE;
+}
 
 
 void struct_list()
 {
-	stu_li num_one = {
-		1,
+	int flag;
+	Node film_list = {
 		"xiaohui",
-		99
+		1
 	};
-	stu_li *stu_list = &num_one;
-	stu_li num_two = {
-		2,
-		"zipei",
-		98,
-		stu_list
-	};
-	printf("%d",sizeof(*num_two.next_ptr));
-
+	List film_ptr = &film_list;
+	film_ptr = initialize_List(film_ptr);
+	flag = isEmpty(film_ptr);
+	printf("%d\n",flag);
 }
+
