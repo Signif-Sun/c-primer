@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_LEN 100
+
+/*------c_primer文件读取以及字符串方法测试-----------chapter13-----------start---------*/
+void file_read()
+{
+	char c_arr[MAX_LEN];
+	char c_arr2[MAX_LEN];
+	char c_strchr[] = "xiaohui";
+//目的是为了接受strchr的返回查找字符所在位置的地址指针,strrchar最后出现位置指针用法一致
+	char *loc;
+	FILE *readin;
+	FILE *putout;
+/*------------c中的方法，但是vs2012不支持------------*/
+	//fopen_s(&fp,"graduate.txt","r+");
+/*-----------vs2012支持的fopen方法------------*/
+	fopen_s(&readin,"ReadMe.txt","r");
+	fopen_s(&putout,"xiaoh.txt","a+");
+
+/*------------fgets方法读取一行，保存末尾的换行符\n---------------*/
+	fgets(c_arr,MAX_LEN,readin);
+	fgets(c_arr2,MAX_LEN,readin);
+
+/*---------fputs方法，从数组中读取，输出到文件中，第二个参数是文件指针-------*/
+	fputs(c_arr2,putout);
+
+/*---------loc是返回第一个字符所在位置的地址指针------------*/
+	loc = strchr(c_strchr,'o');
+
+/*-----------巧妙使用两个地址指针相减得到位置----原因是在c中数组在地址分配时候是连续的--------*/
+	printf("%d\n",loc - c_strchr);
+}
+/*------c_primer文件读取以及字符串方法测试-----------chapter13----------end-------*/
