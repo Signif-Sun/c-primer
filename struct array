@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+int main(void)
+{
+    //创建结构体数组，结构体数组名字在最后
+    struct TELNUM { char name[8]; char sex; char num[15]; char num2[15]; }telnum[3];
+    //赋值方式	
+for (int i = 0; i != 3; i++) {
+		cin >> telnum[i].name >> telnum[i].sex >> telnum[i].num >> telnum[i].num2;
+	 }
+		
+	 for (int i = 0; i != 3; i++) {
+		 cout << telnum[i].name << "--" << telnum[i].sex << "--" << telnum[i].num << "--" << telnum[i].num2 << endl;
+	 }
+		 
+	return 0;
+
+}
