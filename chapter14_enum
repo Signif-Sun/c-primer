@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+void enumTest() {
+	enum color{red, yellow,orange,green,blue,purple};
+	enum color colorFilter;
+	char choice[10];
+	char *colors []= { "red", "yellow","orange","green","blue","purple" };
+	unsigned int i = 0;
+	puts("input a  random color!");
+	gets_s(choice);
+	//printf("the choice is %s.\n", choice);
+	for (; i < 6; i++) {
+		//printf("the colors[%d] is %s.\n", i, colors[i]);
+                //字符串比较是否相同的时候采取strcmp方法，如果相同返回0，否则直接比较会比较字符的指针也就是地址，一定不会相同
+		if (strcmp(choice,colors[i])==0) {
+			
+			break;
+		}
+	}
+	printf("the flag is %u!!\n", i);
+	colorFilter = (enum color)i;
+	printf("the colorFilter is %u!!\n", colorFilter);
+
+	switch (colorFilter) {
+	case red:
+		printf("the name is red!\n");
+	case yellow:
+		printf("the name is yellow!\n");
+		break;
+	case blue:
+		printf("the name is blue!\n");
+		break;
+	default:
+		printf("the name is null!\n");
+		break;
+	}
+}
