@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+
+void unionTest() {
+	struct info {
+		char name[10];
+		char address[15];
+		int grade;
+	};
+	struct owner {
+		char ownerName[10];
+		char ownerNumber[15];
+	};
+	union owner_info {
+		struct info info_1 ;
+		struct owner owner_1;
+	};
+	//使用其中的一种数据类型，然后实际分配空间的时候会按照最大的内存需要分配
+	union owner_info jiawen = {
+		{"xiaohui","cumtb",96}};
+	printf("the name is %s!\n", jiawen.info_1.address);
+}
